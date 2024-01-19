@@ -1,0 +1,104 @@
+{% extends 'sneaker/base.html' %}
+{% load static %}
+{% block title %} Profile {% endblock %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <h3>Welcome <span class="text-capitalize">{{ request.user }}</span></h3>
+        <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>
+                <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-8 offset-sm-1">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    <div class="mb-3">
+                        {{ field.label_tag }} {{ field }}
+                        <div class="text-danger">{{ field.errors|striptags }}</div>
+                    </div>
+                {% endfor %}
+                <div class="col-12 mt-3">
+                    <input type="submit" class="btn btn-primary" value="Update Profile">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% comment %}<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'sneaker/images/product/sneaker1.jpg' %}" alt="" width="70" height="70">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/category/ML">Milk</a></li>
+                        <li><a class="dropdown-item" href="/category/CR">Curd</a></li>
+                        <li><a class="dropdown-item" href="/category/MS">Milkshake</a></li>
+                        <!-- Add more product categories -->
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/about/">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/contact/">Contact Us</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>{% endcomment %}
+{% comment %}
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown mx-2">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">{{ request.user }}</a>
+                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <li>
+                        <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                        <a href="#" class="dropdown-item">Orders</a>
+                        <a href="#" class="dropdown-item">Change Password</a>
+                        <a href="#" class="dropdown-item">Logout</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item mx-2">
+                <a href="#" class="nav-link text-white">Cart</a>
+            </li>
+            <li class="nav-item mx-2">
+                <a href="#" class="nav-link text-white">Wishlist</a>
+            </li>
+            <li class="nav-item mx-2">
+                <a href="/accounts/login/" class="nav-link text-white">Login</a>
+            </li>
+            <li class="nav-item mx-2">
+                <a href="/registration/" class="nav-link text-white">Registration</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endcomment %}
+
+</body>
+{% endblock %}

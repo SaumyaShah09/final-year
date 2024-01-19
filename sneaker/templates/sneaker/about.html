@@ -1,0 +1,60 @@
+{% extends 'sneaker/base.html' %}
+{% load static %}
+{% block title %} About {% endblock %}
+
+{% block banner-slider %}
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static "sneaker/images/banner/b1.jpg" %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "sneaker/images/banner/b2.jpg" %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "sneaker/images/banner/b3.jpg" %}" class="d-block w-100" alt="...">
+    </div>
+      <div class="carousel-item">
+      <img src="{% static "sneaker/images/banner/b4.jpg" %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+ {% endblock %}
+
+{% block main-content %}
+    <div class="container mt-3">
+        <br>
+            <h2 class="text-center">About us</h2>
+        <p class="fs-4 text-center">This is a public limited company having it's
+        registered and corporate office at Ahmedabad city of Gujarat State in India.
+            The company was incorporated in the year 2020 and production commenced in 2023.
+            This is one of the fastest growing Public Listed Companies in Ahmedabad.
+        </p>
+        <br>
+    </div>
+    <br>
+    <br>
+    <h2 class="text-center">Mission</h2>
+    <br>
+    <div class="container mt-3">
+    <p class="text-center fs-4 ">To embrace the right technology to delight our customers
+        Empowering the Farmer community through our unique 'Relationship Farming' model
+        to anticipate, understand and respond to our customer's need by creating high -quality
+        products and making them available through innovative and convenient channel
+    </p>
+    </div>
+{% endblock %}
